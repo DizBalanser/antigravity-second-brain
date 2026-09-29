@@ -109,24 +109,41 @@ Once finished, the agent writes your customized `PROFILE.md` and `RULES.md`, set
 
 ---
 
-## 📱 Optional: Mobile Access via Telegram
+---
 
-Want to talk to your Second Brain while walking or driving?
-1. Open `_system/.env.example`, copy it to `_system/.env`.
-2. Add your free [Gemini API Key](https://aistudio.google.com/) and Telegram Bot Token from `@BotFather`.
-3. Run the mobile companion:
-   ```bash
-   pip install -r _system/telegram-bot/requirements.txt
-   python _system/telegram-bot/bot.py
-   ```
-Now you can send voice notes or text on Telegram, and your agent will transcribe, organize thoughts into your vault, and keep your tasks synced!
+## 🛠️ Modular Skills Included
+
+The system includes pre-configured, extensible Antigravity skills in `.agents/skills/`:
+- **`daily_planning`**: Generates high-leverage daily routines, prioritizes top-3 goals, and manages morning kickoff.
+- **`inbox_processing`**: Triages raw notes, articles, and audio dumps using the P.A.R.A. methodology with automatic `[[wiki-links]]`.
+- **`micro_sprint`**: 15-minute anti-procrastination engine that breaks inertia and builds immediate focus.
+- **`core_memory`**: Dynamically mutates and updates user beliefs, habits, and preferences in `_context/PROFILE.md` over time (inspired by Letta/MemGPT).
+
+---
+
+## 📱 24/7 Mobile Copilot & Remote Terminal via Telegram
+
+Want full control of your machine and Second Brain on your phone?
+Use our 1-click installer:
+
+### 1-Click Automated Setup:
+- **Windows:** Double-click or run `setup.bat`
+- **macOS / Linux:** Run `chmod +x setup.sh && ./setup.sh`
+
+### What the Mobile Companion Can Do:
+- **🎙️ Voice Note Transcription:** Instantly turns voice memos into organized Obsidian notes via Gemini 2.5 Flash.
+- **⏱️ `/sprint [mins] [task]`:** Launches a 15-minute focus sprint. The bot starts a countdown and pings you when time is up.
+- **📊 `/recap`:** Produces a structured evening summary of everything accomplished today.
+- **🎯 `/focus`:** Shows your active sprint priorities and backlog.
+- **💻 `/exec <cmd>`:** Executes terminal commands (PowerShell / Bash) directly on your home PC.
+- **🔔 Proactive Check-in Engine:** Periodically pings you throughout the day (every ~3.5–4h) to maintain momentum.
 
 ---
 
 ## 🔒 100% Local-First & Private
 
 - Your notes and markdown files stay on **your computer**.
-- No proprietary cloud databases, no monthly subscriptions.
+- No proprietary cloud databases, no Docker, no monthly subscriptions.
 - Completely compatible with **Obsidian**, **Cursor**, **VS Code**, and any markdown viewer.
 
 ---
@@ -136,7 +153,8 @@ Now you can send voice notes or text on Telegram, and your agent will transcribe
 1. **Клонируй репозиторий:** `git clone https://github.com/DizBalanser/antigravity-second-brain.git`
 2. **Открой папку в Antigravity:** Запусти Antigravity и выбери эту папку через `Open Folder`.
 3. **Напиши «Привет» в чат:** Агент сам запустит интерактивное знакомство, задаст пару простых вопросов о твоем графике, делах и привычках, и сам заполнит твой профиль `PROFILE.md` и правила общения `RULES.md`.
-4. **Твой Второй Мозг готов!** Ты получаешь автономного цифрового напарника, который держит твои дела в фокусе, разгружает голову и помогает доводить начатое до конца.
+4. **Запусти мобильного ассистента в 1 клик:** Запусти `setup.bat` (Windows) или `./setup.sh` (Mac/Linux), введи ключи в `_system/.env` и запусти `bot.py`.
+5. **Твой Второй Мозг готов!** Ты получаешь автономного цифрового напарника, который держит твои дела в фокусе, разгружает голову, запускает спринты против прокрастинации и помогает доводить начатое до конца.
 
 ---
 
