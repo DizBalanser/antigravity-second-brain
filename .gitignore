@@ -1,0 +1,40 @@
+# Environments and secrets
+.env
+*.env
+.env.*
+!.env.example
+
+# Credentials and OAuth tokens
+credentials.json
+token.json
+client_secret*.json
+
+# Audio and temporary media
+*.oga
+*.ogg
+*.wav
+*.mp3
+*.m4a
+
+# Python cache & logs
+__pycache__/
+*.py[cod]
+*$py.class
+*.log
+.last_update_id
+
+# Operating system files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor and workspace settings
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/extensions.json
+.idea/
