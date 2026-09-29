@@ -427,7 +427,10 @@ async def proactive_scheduler_loop(app: Application) -> None:
         try:
             now = datetime.now()
             today_str = now.strftime("%Y-%m-%d")
-            checkpoints = [(9, 0), (13, 0), (17, 0), (21, 30)]
+            checkpoints = [
+                (8, 30), (10, 30), (12, 30), (14, 30),
+                (16, 30), (18, 30), (20, 30), (22, 30)
+            ]
             should_trigger = False
 
             for ch_hour, ch_min in checkpoints:
@@ -439,16 +442,16 @@ async def proactive_scheduler_loop(app: Application) -> None:
 
             if not should_trigger and (8 <= now.hour <= 23):
                 elapsed_sec = (now - LAST_CHECKIN_TIMESTAMP).total_seconds()
-                if elapsed_sec >= 4.0 * 3600:
+                if elapsed_sec >= 2.0 * 3600:
                     should_trigger = True
 
             if should_trigger and ALLOWED_USER_ID != 0:
                 LAST_CHECKIN_TIMESTAMP = now
                 msg = (
                     f"🔔 **Accountability Check-in ({now.strftime('%H:%M')})**\n\n"
-                    "Quick checkpoint:\n"
-                    "1. What did you finish over the last few hours?\n"
-                    "2. What is your priority right now?\n"
+                    "Quick checkpoint (every 2 hours):\n"
+                    "1. What did you finish over the last 2 hours?\n"
+                    "2. What are you working on right now?\n"
                     "_Send a quick note or tap to record a voice message!_"
                 )
                 await app.bot.send_message(chat_id=ALLOWED_USER_ID, text=msg, parse_mode="Markdown")
@@ -569,6 +572,8 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
     if not is_authorized(update): return
     text = update.message.text
     if not text: return
+    global LAST_CHECKIN_TIMESTAMP
+    LAST_CHECKIN_TIMESTAMP = datetime.now()
     await context.bot.send_chat_action(chat_id=update.effective_chat.id, action="typing")
     reply = await process_with_ai(update.effective_user.id, text)
     if len(reply) > 4000:
@@ -581,6 +586,8 @@ async def handle_voice(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
     if not is_authorized(update): return
     voice = update.message.voice
     if not voice: return
+    global LAST_CHECKIN_TIMESTAMP
+    LAST_CHECKIN_TIMESTAMP = datetime.now()
     await context.bot.send_chat_action(chat_id=update.effective_chat.id, action="typing")
     try:
         vf = await context.bot.get_file(voice.file_id)
