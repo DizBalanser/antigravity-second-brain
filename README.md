@@ -27,7 +27,7 @@ From day one, you get a dedicated **Digital Twin & Executive Chief of Staff** th
 
 ### 1. Clone or Download this Repo
 ```bash
-git clone https://github.com/YOUR_USERNAME/antigravity-second-brain.git
+git clone https://github.com/DizBalanser/antigravity-second-brain.git
 ```
 
 ### 2. Open in Google Antigravity
@@ -133,7 +133,7 @@ Now you can send voice notes or text on Telegram, and your agent will transcribe
 
 ## 🇷🇺 Краткое руководство на русском
 
-1. **Клонируй репозиторий:** `git clone https://github.com/YOUR_USERNAME/antigravity-second-brain.git`
+1. **Клонируй репозиторий:** `git clone https://github.com/DizBalanser/antigravity-second-brain.git`
 2. **Открой папку в Antigravity:** Запусти Antigravity и выбери эту папку через `Open Folder`.
 3. **Напиши «Привет» в чат:** Агент сам запустит интерактивное знакомство, задаст пару простых вопросов о твоем графике, делах и привычках, и сам заполнит твой профиль `PROFILE.md` и правила общения `RULES.md`.
 4. **Твой Второй Мозг готов!** Ты получаешь автономного цифрового напарника, который держит твои дела в фокусе, разгружает голову и помогает доводить начатое до конца.
